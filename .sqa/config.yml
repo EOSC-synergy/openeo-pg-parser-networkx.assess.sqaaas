@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/Open-EO/openeo-pg-parser-networkx:
+      branch: main
+      repo: https://github.com/Open-EO/openeo-pg-parser-networkx
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx git:
+        commands:
+        - /usr/bin/env sh .sqa/script.surly-myrtle-centipede.sh
+        container: qc.acc_freaky-ecru-jackal
+  QC.Doc:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.freaky-heliotrope-starfish.sh
+        container: qc.doc_clammy-bistre-shark
+      github.com/Open-EO/openeo-pg-parser-networkx git:
+        commands:
+        - /usr/bin/env sh .sqa/script.skinny-bistre-duck.sh
+        container: qc.doc_shaggy-firebrick-zebu
+  QC.Lic:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.foggy-pink-vulture.sh
+        container: qc.lic_squeaky-rust-crane
+  QC.Ver:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.blurry-aqua-eleuth.sh
+        container: qc.ver_scummy-harlequin-frog
+timeout: 5400
