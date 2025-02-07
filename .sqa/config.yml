@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/Open-EO/openeo-pg-parser-networkx:
       branch: main
@@ -15,28 +15,54 @@ sqa_criteria:
     repos:
       github.com/Open-EO/openeo-pg-parser-networkx git:
         commands:
-        - /usr/bin/env sh .sqa/script.surly-myrtle-centipede.sh
-        container: qc.acc_freaky-ecru-jackal
+        - /usr/bin/env sh .sqa/script.snappy-magenta-tetra.sh
+        container: qc.acc_sickly-plum-orangutan
   QC.Doc:
     repos:
       github.com/Open-EO/openeo-pg-parser-networkx find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.freaky-heliotrope-starfish.sh
-        container: qc.doc_clammy-bistre-shark
+        - /usr/bin/env sh .sqa/script.hilly-olive-bloodhound.sh
+        container: qc.doc_surly-razzmatazz-lynx
       github.com/Open-EO/openeo-pg-parser-networkx git:
         commands:
-        - /usr/bin/env sh .sqa/script.skinny-bistre-duck.sh
-        container: qc.doc_shaggy-firebrick-zebu
+        - /usr/bin/env sh .sqa/script.smelly-vermilion-buzzard.sh
+        container: qc.doc_skimpy-sepia-armadillo
+      github.com/Open-EO/openeo-pg-parser-networkx markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.baggy-teal-stingray.sh
+        container: qc.doc_baggy-amethyst-mongoose
   QC.Lic:
     repos:
       github.com/Open-EO/openeo-pg-parser-networkx licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.foggy-pink-vulture.sh
-        container: qc.lic_squeaky-rust-crane
+        - /usr/bin/env sh .sqa/script.tasty-malachite-bongo.sh
+        container: qc.lic_shabby-pumpkin-earwig
+  QC.Sec:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.woozy-mauve-snake.sh
+        container: qc.sec_snoopy-plum-ocelot
+  QC.Sty:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.skanky-grey-gorilla.sh
+        container: qc.sty_shaky-viridian-wallaby
+      github.com/Open-EO/openeo-pg-parser-networkx jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.greasy-silver-toucan.sh
+        container: qc.sty_queasy-denim-whale
+  QC.Uni:
+    repos:
+      github.com/Open-EO/openeo-pg-parser-networkx pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.paltry-amethyst-angelfish.sh
+        container: qc.uni_shaky-emerald-cat
   QC.Ver:
     repos:
       github.com/Open-EO/openeo-pg-parser-networkx get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.blurry-aqua-eleuth.sh
-        container: qc.ver_scummy-harlequin-frog
+        - /usr/bin/env sh .sqa/script.queasy-dandelion-dalmatian.sh
+        container: qc.ver_ugly-denim-chicken
 timeout: 5400
